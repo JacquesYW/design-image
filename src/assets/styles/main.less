@@ -1,0 +1,94 @@
+@import url(./enum.less);
+// 需要继承和替换的变量声明(如主题)
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+body {
+  --border-radius: 4px;
+  --panel-shadow: 0 8px 32px 2px var(--color-transparent-black-300), 0 0 1px var(--color-transparent-black-500);
+  --scrollbar-color-regular: var(--color-transparent-black-500);
+}
+// 常用公共样式
+html,
+body {
+  margin: 0px;
+  font-size: @font-size;
+  overflow: hidden;
+  & ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: initial;
+  }
+  & ::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(215, 8%, 54%, 0.8);
+  }
+  & ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: hsla(215, 8%, 54%, 0.5);
+  }
+  & ::-webkit-scrollbar-track {
+    width: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: initial;
+  }
+}
+a {
+  text-decoration: none;
+}
+
+.text-ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* -------------------- */
+
+.flex {
+  display: flex;
+  width: 100%;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex1 {
+  flex: 1;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-v-center {
+  align-items: center;
+}
+
+/* 元素中线对齐 */
+.flex-h-center {
+  justify-content: center;
+}
+
+/* 左右居中 */
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+/* 容器上下, 左右都居中 */
+.flex-end {
+  justify-content: flex-end;
+}
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex.gap-8 {
+  gap: 8px;
+}
+.flex.gap-10 {
+  gap: 10px;
+}
+.flex.gap-12 {
+  gap: 12px;
+}

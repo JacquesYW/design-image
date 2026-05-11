@@ -1,0 +1,59 @@
+.animEdit {
+  display: flex;
+  height: calc(100% - 53px);
+  flex-direction: column;
+  padding: 0 var(--horizontal-padding);
+  overflow: auto;
+}
+.animEditHeadRight {
+  display: flex;
+  align-items: center;
+}
+.HeadRightAction {
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-sizing: content-box;
+  &:hover {
+    background: var(--color-gray-100);
+  }
+  &:active {
+    opacity: 0.8;
+  }
+}
+.animEditBody {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+.animEditAdd {
+  display: flex;
+  align-items: center;
+  padding: 12px 30px 12px 12px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  column-gap: var(--horizontal-padding);
+  color: #232321;
+  cursor: pointer;
+}
+.animEditAddIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+.animEditAddLabel {
+  flex: 1 1 auto;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+}
+.animEditFoot {
+  flex: 0 0 auto;
+}

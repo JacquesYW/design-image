@@ -1,0 +1,29 @@
+@import url(@/pages/design/RightBar/index.module.less);
+
+.tool-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: -8px;
+  padding-top: 12px;
+  .tool-panel-item {
+    padding: 4px 8px;
+    border-radius: 6px;
+    .cursor-pointer;
+    &:hover {
+      background: var(--color-gray-100);
+    }
+  }
+  .tool-panel-item.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    &:hover {
+      background: inherit;
+    }
+  }
+}
+.to-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

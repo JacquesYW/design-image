@@ -1,0 +1,81 @@
+// 全局变量声明
+// 设计页面 - 布局 - 顶部高度
+@layout-top: 55px;
+// 设计页面 - 布局 - 左侧分类栏宽度
+@layout-left-asite: 65px;
+// 设计页面 - 布局 - 左侧内容宽度
+@layout-left-context: 330px;
+// 设计页面 - 布局 - 右侧内容宽度
+@layout-right: 280px;
+// 页面默认字体大小
+@font-size: 14px;
+// 右侧功能模块-按钮高度
+@right-panel-action-btn-height: 40px;
+.cursor-pointer {
+  cursor: pointer;
+  &:active {
+    opacity: 0.8;
+  }
+}
+.icon-question {
+  color: var(--color-gray-700);
+  font-size: 12px;
+  &.right {
+    margin-left: 4px;
+  }
+  &.left {
+    margin-right: 4px;
+  }
+}
+.no-padding {
+  padding: 0px !important;
+}
+.diabled {
+  cursor: not-allowed !important;
+}
+.if (@condition, @property, @value) when (@condition = true) {
+  @{property}: @value;
+}
+.transparent-bg(@c,@px) {
+  background-image: linear-gradient(to top right, @c 25%, transparent 0, transparent 75%, @c 0, @c),
+    linear-gradient(to top right, @c 25%, transparent 0, transparent 75%, @c 0, @c);
+  background-size: @px @px;
+  background-position:
+    0 0,
+    calc(@px / 2) calc(@px / 2);
+}
+
+.img-back-box {
+  position: relative;
+  cursor: not-allowed;
+  &::after {
+    @s: var(--scale, 1);
+    display: inline-block;
+    content: ' ';
+    width: calc(100% * @s);
+    height: calc(100% * @s);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: 1px dashed #666;
+    box-sizing: border-box;
+    transform-origin: top left;
+    transform: scale(calc(1 / @s));
+  }
+  img {
+    opacity: 0.3;
+  }
+}
+/* antd - ColorPicker 样式修正 */
+.image-design-color-picker {
+  .ant-popover-inner-content {
+    width: 234px;
+  }
+}
+.scrollbar-thin {
+  &:not(.dui-scrollbar__container) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color-regular) transparent;
+  }
+}

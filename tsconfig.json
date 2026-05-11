@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      // 配置导出路径（这里根据自己项目执行修改）
+      "@/assets*": ["./src/assets*"],
+      "@/utils*": ["./src/utils*"],
+      "@/hocks*": ["./src/hocks*"],
+      "@/pages*": ["./src/pages*"],
+      "@/common*": ["./src/common*"],
+      "@/components*": ["./src/components*"]
+    }
+  },
+  "include": ["auto-imports.d.ts", "global.d.ts", "src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

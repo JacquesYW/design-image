@@ -1,0 +1,31 @@
+.rangeInput {
+  display: flex;
+  column-gap: 8px;
+}
+.rangeInputSlider {
+  flex: 1 1 50%;
+}
+.rangeInputNumber {
+  flex: 1 1 50%;
+}
+
+.rangeInput {
+  :global {
+    .ant-slider {
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .ant-input-number-affix-wrapper {
+      width: 100%;
+      border-color: transparent;
+      background-color: #f0f0f0;
+    }
+    .ant-input-number-affix-wrapper > div.ant-input-number {
+      background-color: #f0f0f0;
+    }
+    .ant-input-number-affix-wrapper input.ant-input-number-input {
+      padding: 9px 0;
+    }
+  }
+}

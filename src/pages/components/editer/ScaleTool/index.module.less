@@ -1,0 +1,27 @@
+.scale-tool-clip {
+  color: #000;
+  display: flex;
+  align-items: center;
+  .scale-tool-clip-btn {
+    .cursor-pointer;
+  }
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.4 !important;
+  }
+  .highlight {
+    color: #1890ff;
+  }
+}
+.scale-tool-tooltip {
+  max-width: none;
+  z-index: 9999;
+  :global {
+    .ant-tooltip-inner {
+      padding: 6px 16px;
+    }
+    .ant-tooltip-arrow {
+      display: none;
+    }
+  }
+}

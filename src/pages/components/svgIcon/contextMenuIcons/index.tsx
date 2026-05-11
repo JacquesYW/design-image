@@ -1,0 +1,9 @@
+export { default as Copy } from './Copy';
+export { default as Cut } from './Cut';
+export { default as FormatPainter } from './FormatPainter';
+export { default as Paste } from './Paste';
+export { default as PositionHorizontalCenter } from './PositionHorizontalCenter';
+export { default as PositionVerticalCenter } from './PositionVerticalCenter';
+export { default as Overlap } from './Overlap';
+export { default as BackgroundFill } from './BackgroundFill';
+export { default as ChangeToImg } from './ChangeToImg';

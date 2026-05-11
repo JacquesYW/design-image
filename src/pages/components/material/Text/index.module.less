@@ -1,0 +1,73 @@
+.text-layer-container {
+  width: 100%;
+  height: 100%;
+  // 避免顶部的选中设置-影响contenteditable的文本编辑(光标异常不显示)
+  user-select: auto;
+  /* 加上边框的4px */
+  .text-content-box {
+    transform: scale(var(--zoom));
+    transform-origin: left top;
+  }
+}
+:global {
+  .ql-editor {
+    min-width: fit-content;
+    min-height: fit-content;
+    caret-color: #000;
+    outline: none;
+    & > p {
+      margin: 0px !important;
+    }
+    & u,
+    & s {
+      text-decoration-color: var(--color, #000) !important;
+    }
+    // 处理文字描边
+    *[data-text] {
+      // &:only-child {
+      //   width: 100%;
+      //   height: 100%;
+      // }
+      position: relative;
+      display: inline-block;
+      background-clip: text;
+      background-image: var(--fill-color, transparent);
+      &::after {
+        content: attr(data-text);
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: calc(0px - var(--stroke-width) / 2);
+        padding: calc(var(--stroke-width, 0px) / 2);
+        left: calc(0px - var(--stroke-width) / 2);
+        box-sizing: content-box;
+        /* 优化项-描边可以透出框外-但是截图会出现位移-等canvas来实现吧 */
+        z-index: -1;
+        -webkit-text-stroke: var(--stroke-width, 0px) transparent;
+        background-clip: text;
+        background-image: var(--stroke-color);
+      }
+    }
+  }
+  .ql-clipboard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 1px;
+  }
+}
+// 展示填充色的时候, 隐藏原color的颜色
+.fill-color-box {
+  & *[data-text] {
+    color: transparent !important;
+  }
+}
+.stroke-color-box {
+  & *[data-text] {
+    &::after {
+      visibility: visible !important;
+    }
+  }
+}

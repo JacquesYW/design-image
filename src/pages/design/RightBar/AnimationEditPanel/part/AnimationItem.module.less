@@ -1,0 +1,68 @@
+.animItem {
+  margin-bottom: 24px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+}
+.animItemAnim {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 12px;
+  position: relative;
+  width: 100%;
+}
+.animItemAnimPreview {
+  display: block;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+  border-radius: 6px;
+}
+.animItemAnimName {
+  flex: 1 1 auto;
+  font-size: 14px;
+  height: 48px;
+  line-height: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 0;
+  word-break: break-all;
+}
+.animItemAnimMore {
+  flex: 0 0 auto;
+  margin-left: 12px;
+  font-size: 6px;
+}
+.animItemSettings {
+  padding: 12px;
+}
+.animItemPreview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #f0f0f0;
+  border-radius: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  color: #232321;
+  font-size: 14px;
+  cursor: pointer;
+  &:not(:disabled):not(.ant-btn-disabled):hover {
+    border-color: #f0f0f0;
+  }
+}
+
+.animItemReplacer {
+  :global {
+    .ant-popover-inner {
+      padding: 0;
+    }
+  }
+}

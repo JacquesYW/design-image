@@ -1,0 +1,38 @@
+.tool-panel {
+  width: @layout-left-context;
+  transition: 0.3s ease;
+  transform: translateX(var(--positonX));
+  height: 100%;
+  overflow: hidden auto;
+  .tool-container {
+    width: 100%;
+    padding: 16px;
+    .tool-item {
+      background: var(--color-gray-100);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      .cursor-pointer;
+      &:hover {
+        background: var(--color-gray-300);
+      }
+      .item-icon {
+        margin-right: 12px;
+        font-size: 32px;
+      }
+      .item-title {
+        font-size: 14px;
+        color: var(--color-gray-900);
+      }
+      .item-desc {
+        font-size: 12px;
+        color: var(--color-gray-500);
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

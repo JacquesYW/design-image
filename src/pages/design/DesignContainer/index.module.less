@@ -1,0 +1,178 @@
+.editor-outer {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.editor-animation-preview {
+  position: absolute;
+  z-index: 10000;
+  left: calc(var(--container-space-left, 0px) + var(--design-space-left, 0px));
+  top: calc(var(--container-space-top, 0px) + var(--design-space-top, 0px));
+  transform: translateY(calc(-100% - 5px));
+}
+.editer-bar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+  z-index: 0;
+  --is-playing: auto;
+  &.is-playing {
+    --is-playing: hidden;
+    :global {
+      .moveable-control-box {
+        visibility: hidden !important;
+      }
+    }
+  }
+
+  .editer-container {
+    flex: 1;
+    height: 100%;
+    overflow: scroll;
+    position: relative;
+    user-select: none;
+    background-color: var(--color-gray-200, #f1f2f4);
+    @pTop: calc(var(--container-space-top, 0px) + var(--design-space-top, 0px));
+    @pLeft: calc(var(--container-space-left, 0px) + var(--design-space-left, 0px));
+    @pBottom: calc(var(--container-space-top, 0px) + var(--design-space-bottom, 0px));
+    padding: @pTop @pLeft @pBottom;
+    .scrollbar-thin;
+    .design-canvas-container {
+      width: var(--canvas-width, 0px);
+      height: var(--canvas-height, 0px);
+      box-sizing: content-box;
+      background-size: cover;
+      background-position: 0px 0px;
+      position: relative;
+      z-index: 1;
+      .transparent-bg(hsla(0, 0%, 80%, 0.4),16px);
+      .design-canvas {
+        width: var(--canvas-width, 0px);
+        height: var(--canvas-height, 0px);
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1;
+        .design-template-container {
+          width: var(--canvas-width, 0px);
+          height: var(--canvas-height, 0px);
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          .design-template-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+    :global {
+      /* moveable css迭代 */
+      .moveable-area {
+        cursor: move;
+      }
+      .moveable-control {
+        width: 10px !important;
+        height: 10px !important;
+        margin-top: -5px !important;
+        margin-left: -5px !important;
+        background-color: #fff !important;
+        border: none !important;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+      }
+      .moveable-control.moveable-rotation-control {
+        transform: translate(0.5px) scale(0.8) !important;
+        background-image: url(../../../assets/images/common/moveable-rotation.png) !important;
+        border: none;
+        width: 20px !important;
+        height: 20px !important;
+        margin-left: -10px !important;
+        background-size: 100% 100% !important;
+        display: block;
+      }
+      /* 
+        moeable组件的原样式使用的background
+        使用 background-color: var(--color-blue-600); 替换moveable-line边框线颜色
+        避免使用 !important, 会造成 background-image无法覆盖的问题(虚线实现)
+        data-able-groupable='true',单个选中时实线,多选时虚线 (使用背景渐变色间隔实现虚线效果)
+      */
+      .moveable-line {
+        background-color: var(--color-blue-600);
+      }
+      .moveable-control-box[data-able-groupable='true'] {
+        & > .moveable-line {
+          display: none;
+          &[data-line-key^='render-line'] {
+            background-color: transparent;
+            .transparent-bg(var(--color-blue-600),6px);
+            display: block;
+          }
+        }
+      }
+      .moveable-line.moveable-rotation-line {
+        display: none !important;
+      }
+      .moveable-line.moveable-direction {
+        height: 2px !important;
+      }
+      .moveable-direction.moveable-e,
+      .moveable-direction.moveable-w {
+        cursor: ew-resize;
+        width: 8px !important;
+        height: 16px !important;
+        margin-top: -8px !important;
+        margin-left: -4px !important;
+        border-radius: 8px !important;
+      }
+      .moveable-direction.moveable-s,
+      .moveable-direction.moveable-n {
+        cursor: ns-resize;
+        width: 15px !important;
+        height: 8px !important;
+        margin-top: -4px !important;
+        margin-left: -8px !important;
+        border-radius: 8px !important;
+      }
+      /* 文字颜色淡紫色 */
+      @moveable-snappable-color: rgba(247, 51, 214, 0.637);
+      /* pos guidelines */
+      .moveable-normal {
+        background: @moveable-snappable-color !important;
+      }
+      /* gap guidelines */
+      .moveable-gap {
+        color: @moveable-snappable-color !important;
+        background: transparent !important;
+      }
+      /* When snapped to an element in elementGuidelines */
+      .moveable-bold {
+        background: @moveable-snappable-color !important;
+      }
+      /* A dashed line between target and element */
+      .moveable-dashed {
+        border-top-color: @moveable-snappable-color !important;
+        border-left-color: @moveable-snappable-color !important;
+      }
+    }
+  }
+}
+:global {
+  .edit-layer {
+    width: calc(var(--transform-width, 100%) * var(--zoom));
+    height: calc(var(--transform-height, 100%) * var(--zoom));
+    box-sizing: border-box;
+  }
+  // .edit-layer.edit-layer-hover {
+  //   border: 2px dashed var(--color-blue-600);
+  // }
+  // .edit-layer.edit-layer-selected {
+  //   border: 2px solid var(--color-blue-600);
+  // }
+}

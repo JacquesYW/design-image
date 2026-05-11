@@ -1,0 +1,25 @@
+.top-bar {
+  width: 100%;
+  height: @layout-top;
+  background-color: var(--color-static-white, #fff);
+  border-bottom: 1px solid var(--color-gray-200, #eef2f8);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  .unredo-box {
+    display: flex;
+    align-items: center;
+    .undo,
+    .redo {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      cursor: pointer;
+      &.disabled {
+        cursor: not-allowed;
+        color: #aaa;
+      }
+    }
+  }
+}

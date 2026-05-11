@@ -1,0 +1,31 @@
+.animSelector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+  min-height: 300px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.animSelectorItem {
+  cursor: pointer;
+  overflow: hidden;
+}
+.animSelectorItemPreview {
+  display: block;
+  height: 58px;
+  border: 1px solid #e6e9ef;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.animSelectorItem.isSelected .animSelectorItemPreview {
+  border-color: #5048e5;
+}
+
+.animSelectorItemLabel {
+  font-size: 12px;
+  line-height: 23px;
+  text-align: center;
+  color: #85878c;
+}
